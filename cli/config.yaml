@@ -9,5 +9,5 @@ browsers:
   firefox:
     profiles: [default]
     enabled: true
-# Log level options: info, debug, error
-log_level: info
+# Log level options: INFO, DEBUG, ERROR
+log_level: INFO
