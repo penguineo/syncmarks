@@ -3,7 +3,7 @@ use_remote_connection: false
 #  remote_connection_url: https://www.example.com
 sync_interval_seconds: 120
 browsers:
-  chrome:
+  google-chrome-stable:
     enabled: true
     profiles: [Default]
   firefox:
