@@ -1,15 +1,16 @@
 from util.config import load_config
-from util.log import configure_logger, logger
+from util.log import configure_logger
+from util.log import logger as log
 
 
 def main():
     try:
-        logger.info("Starting application.")
+        log.info("Starting application.")
         config = load_config()
         configure_logger(log_level=config["log_level"])
-        logger.success("Starting application.", extra={"config": config})
+        log.success("Starting application.")
     except Exception as e:
-        logger.error("Starting application.", extra={"error": e})
+        log.error(f"Starting application: {e}")
         raise
 
 
