@@ -17,7 +17,7 @@ def main():
             profiles = browser_settings.get("profiles")
             match browser_name:
                 case "google-chrome-stable":
-                    chrome_stable = GoogleChromeStable
+                    chrome_stable = GoogleChromeStable()
                     if chrome_stable.is_installed:
                         data = chrome_stable.get_bookmarks(profiles)
                 case "firefox":
