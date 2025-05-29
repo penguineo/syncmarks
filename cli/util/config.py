@@ -1,4 +1,4 @@
-import yaml
+import yaml  # type: ignore
 
 from util.log import logger as log
 

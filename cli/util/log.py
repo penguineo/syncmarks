@@ -1,6 +1,6 @@
 import sys
 
-from loguru import logger
+from loguru import logger  # type: ignore
 
 
 def configure_logger(log_level="INFO", log_file="logs/log_{time}.json"):
