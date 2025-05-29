@@ -10,7 +10,7 @@ def main():
         config = load_config()
         configure_logger(log_level=config["log_level"])
         log.success("Starting application.")
-        browser_config: dict = config.get("browsers", {})
+        browser_config = config.get("browsers", {})
         for browser_name, browser_settings in browser_config.items():
             if not browser_settings.get("enabled", False):
                 continue
