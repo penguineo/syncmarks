@@ -3,11 +3,9 @@ import os
 import platform
 
 from browsers.base import Browser
-from util.detect_installed_browser import (
-    detect_browser_linux,
-    detect_browser_mac,
-    detect_browser_windows,
-)
+from util.is_browser_present import (is_browser_present_linux,
+                                     is_browser_present_mac,
+                                     is_browser_present_windows)
 from util.log import logger as log
 
 
@@ -21,13 +19,13 @@ class GoogleChromeStable(Browser):
         match os_name:
             case "Linux":
                 log.debug("Detected OS: Linux")
-                result = detect_browser_linux(self.name)
+                result = is_browser_present_linux(self.name)
             case "Windows":
                 log.debug("Detected OS: Windows")
-                result = detect_browser_windows(self.name)
+                result = is_browser_present_windows(self.name)
             case "Darwin":
                 log.debug("Detected OS: macOS")
-                result = detect_browser_mac(self.name)
+                result = is_browser_present_mac(self.name)
             case _:
                 log.error(f"Unsupported OS: {os_name}")
                 return False
