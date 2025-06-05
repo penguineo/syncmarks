@@ -7,7 +7,7 @@ import yaml  # type: ignore
 from util.log import logger as log
 
 
-def load_config(path="config.yaml"):
+def load_config(path: Path):
     log.info(
         "Starting to load config",
         extra={"function": load_config.__name__, "config_path": path},
