@@ -1,5 +1,5 @@
 from browsers.google_chrome import GoogleChromeStable
-from util.config import load_config
+from util.config import config_path, load_config
 from util.log import configure_logger
 from util.log import logger as log
 
@@ -7,7 +7,7 @@ from util.log import logger as log
 def main():
     try:
         log.info("Starting application.")
-        config = load_config()
+        config = load_config(config_path())
         configure_logger(log_level=config["log_level"])
         log.success("Starting application.")
         browser_config = config.get("browsers", {})
