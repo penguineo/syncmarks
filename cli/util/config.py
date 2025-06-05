@@ -1,3 +1,4 @@
+import platform
 from pathlib import Path
 from shutil import copy2
 
@@ -28,6 +29,29 @@ def load_config(path="config.yaml"):
         extra={"function": load_config.__name__, "config_path": path},
     )
     return config
+
+def config_path(path: str = "") -> Path:
+    log.info("Detemining config path")
+    if len(path) != 0 :
+        log.success("Determining config path")
+        return Path(path).expanduser()
+    os_name = platform.system()
+    match os_name:
+        case "Linux":
+            log.debug("Detected OS: Linux")
+            log.success("Determining config path")
+            return Path("~/.config/syncmarks/config.yml").expanduser()
+        # TODO: Implement default folder location for config in windows and macOs,
+        #
+        # case "Windows":
+        #     log.debug("Detected OS: Windows")
+        #     return ""
+        # case "Darwin":
+        #     log.debug("Detected OS: macOS")
+        #     return ""
+        case _:
+            log.error(f"Unsupported OS: {os_name}")
+            return Path("")
 
 def generate_sample_config(path: str):
     log.info("Generating sample config")
