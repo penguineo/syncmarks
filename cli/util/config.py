@@ -1,3 +1,6 @@
+from pathlib import Path
+from shutil import copy2
+
 import yaml  # type: ignore
 
 from util.log import logger as log
@@ -25,3 +28,13 @@ def load_config(path="config.yaml"):
         extra={"function": load_config.__name__, "config_path": path},
     )
     return config
+
+def generate_sample_config(path: str):
+    log.info("Generating sample config")
+    dest_path = Path(path)
+    if not dest_path.exists():
+        log.debug(f"Config path not found {path}")
+        dest_path.parent.mkdir(parents=True, exist_ok=True)
+    sample_config_path = Path.cwd() / "sample_config.yaml"
+    copy2(sample_config_path, dest_path)
+    log.info(f"Sample config copied to {dest_path}")
