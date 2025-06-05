@@ -1,6 +1,7 @@
 use_remote_connection: false
 # Optional, required if use_remote_connection is true.
 #  remote_connection_url: https://www.example.com
+backup_folder: ''
 sync_interval_seconds: 120
 browsers:
   google-chrome-stable:
