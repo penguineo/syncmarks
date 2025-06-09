@@ -10,5 +10,5 @@ browsers:
   firefox:
     profiles: [default]
     enabled: true
-# Log level options: INFO, DEBUG, ERROR
-log_level: INFO
+# Log level options: INFO, DEBUG, WARN, ERROR
+log_level: WARN
