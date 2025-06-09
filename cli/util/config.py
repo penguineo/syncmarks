@@ -52,7 +52,8 @@ def config_path(path: str = "") -> Path:
             log.error(f"Unsupported OS: {os_name}")
             return Path("")
 
-def generate_sample_config(path: str):
+
+def generate_sample_config(path: Path):
     log.info("Generating sample config")
     dest_path = Path(path)
     if not dest_path.exists():
