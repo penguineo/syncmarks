@@ -1,6 +1,6 @@
 import argparse
 
-from handler import handle_generate_sample_parser
+from handler import handle_args, handle_generate_sample_parser
 
 
 def arg_parser():
@@ -22,3 +22,5 @@ def arg_parser():
     )
 
     generate_sample_parser.set_defaults(func=handle_generate_sample_parser)
+    args = parser.parse_args()
+    handle_args(args)
