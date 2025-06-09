@@ -31,6 +31,18 @@ def load_config(path: Path):
 
 
 def config_path() -> Path:
+    """
+    Return the path of default config file based on the current OS.
+
+    Args:
+        None
+
+    Returns:
+        Path: A Path object pointing to the default config file location.
+
+    Raises:
+        None: This function does not raise any exceptions.
+    """
     log.info("Determining config path")
     os_name = platform.system()
     match os_name:
