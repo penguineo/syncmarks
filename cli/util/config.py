@@ -29,11 +29,9 @@ def load_config(path: Path):
     )
     return config
 
-def config_path(path: str = "") -> Path:
-    log.info("Detemining config path")
-    if len(path) != 0 :
-        log.success("Determining config path")
-        return Path(path).expanduser()
+
+def config_path() -> Path:
+    log.info("Determining config path")
     os_name = platform.system()
     match os_name:
         case "Linux":
