@@ -54,6 +54,16 @@ def config_path(path: str = "") -> Path:
 
 
 def generate_sample_config(path: Path):
+    """
+    Generate a sample configuration file at the specified path.
+
+    Args:
+        path (Path): The path where the sample configuration will be saved.
+            This should be a `Path` object pointing to the desired location.
+
+    Returns:
+        None
+    """
     log.info("Generating sample config")
     dest_path = Path(path)
     if not dest_path.exists():
