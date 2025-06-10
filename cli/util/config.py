@@ -29,11 +29,21 @@ def load_config(path: Path):
     )
     return config
 
-def config_path(path: str = "") -> Path:
-    log.info("Detemining config path")
-    if len(path) != 0 :
-        log.success("Determining config path")
-        return Path(path).expanduser()
+
+def config_path() -> Path:
+    """
+    Return the path of default config file based on the current OS.
+
+    Args:
+        None
+
+    Returns:
+        Path: A Path object pointing to the default config file location.
+
+    Raises:
+        None: This function does not raise any exceptions.
+    """
+    log.info("Determining config path")
     os_name = platform.system()
     match os_name:
         case "Linux":
@@ -52,7 +62,18 @@ def config_path(path: str = "") -> Path:
             log.error(f"Unsupported OS: {os_name}")
             return Path("")
 
-def generate_sample_config(path: str):
+
+def generate_sample_config(path: Path):
+    """
+    Generate a sample configuration file at the specified path.
+
+    Args:
+        path (Path): The path where the sample configuration will be saved.
+            This should be a `Path` object pointing to the desired location.
+
+    Returns:
+        None
+    """
     log.info("Generating sample config")
     dest_path = Path(path)
     if not dest_path.exists():
