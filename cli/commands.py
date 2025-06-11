@@ -4,6 +4,18 @@ from handler import handle_args, handle_generate_sample_parser
 
 
 def arg_parser():
+    """
+    Parse command-line arguments.
+
+    Args:
+        None
+
+    Returns:
+        None
+
+    Raises:
+        SystemExit: If invalid arguments are provided (raised by argparse).
+    """
     parser = argparse.ArgumentParser(
         prog="syncmarks",
         description="Sync browser bookmarks.",
