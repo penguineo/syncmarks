@@ -10,6 +10,18 @@ def arg_parser():
         epilog="copyright text",
     )
 
+    # Default flags #
+    parser.add_argument(
+        "-V",
+        "--verbose",
+        metavar="[Verbosity_Level]",
+        type=str,
+        choices=["INFO", "DEBUG", "WARN", "ERROR"],
+        help="Print logs for more verbose output.\
+        Verbosity_Level = [INFO | DEBUG | WARN | ERROR].\
+        Default Verbosity_Level is INFO",
+    )
+
     sub_parser = parser.add_subparsers(dest="command", help="subcommand help")
 
     # Configuration Management #
@@ -22,5 +34,6 @@ def arg_parser():
     )
 
     generate_sample_parser.set_defaults(func=handle_generate_sample_parser)
+
     args = parser.parse_args()
     handle_args(args)
